@@ -18,7 +18,7 @@ This project generates randomized messages combining laws described in "The 48 L
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/<your-username>/<your-repo-name>.git
+   git clone https://github.com/tane994/mixed-messages-scraper-power.git
    ```
 
 2. Install dependencies:
