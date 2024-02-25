@@ -6,22 +6,18 @@ async function getH2Titles(url) {
     const response = await axios.get(url);
     const $ = cheerio.load(response.data);
 
-    const laws = [];
-
-    $('h2').each((index, element) => {
+    const laws = $('h2').map((index, element) => {
       const lawTitle = $(element).text().trim();
       const lawDescription = $(element).next('p').text().trim();
 
-      laws.push({ title: lawTitle, description: lawDescription });
-    });
+      return { title: lawTitle, description: lawDescription };
+    }).get(); 
 
     return laws; 
-
   } catch (error) {
     console.error('Error fetching or parsing data:', error);
-    return []; 
+    throw error; 
   }
 }
-
 
 export { getH2Titles };
